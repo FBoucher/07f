@@ -1,5 +1,5 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 
 namespace TinyBlazorAdmin.Data
 {
@@ -9,12 +9,14 @@ namespace TinyBlazorAdmin.Data
 
         public string Title { get; set; }
 
-
-        public string Vanity { 
-            get{
-                return (_vanity != null)?_vanity:string.Empty;
+        public string Vanity
+        {
+            get
+            {
+                return (_vanity != null) ? _vanity : string.Empty;
             }
-            set{
+            set
+            {
                 _vanity = value;
             }
         }
@@ -22,5 +24,18 @@ namespace TinyBlazorAdmin.Data
         [Required]
         public string Url { get; set; }
 
+        private List<Schedule> _schedules;
+
+        public List<Schedule> Schedules { 
+            get{
+                if(_schedules == null){
+                    _schedules = new List<Schedule>();
+                }
+                return _schedules;
+            } 
+            set{
+                _schedules = value;
+            } 
+        }
     }
 }
