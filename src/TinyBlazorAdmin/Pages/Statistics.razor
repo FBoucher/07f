@@ -61,7 +61,7 @@
 
     private async Task UpdateUIList()
     {
-        subTitle = (Vanity.Length > 0)? $"Clicks for: {Vanity}": "All clicks";
+        subTitle = (!String.IsNullOrEmpty(Vanity))? $"Clicks for: {Vanity}": "All clicks";
         
         clickStatsList = await azClient.GetClickStats(Vanity);
 
